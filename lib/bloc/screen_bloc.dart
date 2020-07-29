@@ -7,8 +7,7 @@ part 'screen_event.dart';
 part 'screen_state.dart';
 
 class ScreenBloc extends Bloc<ScreenEvent, ScreenState> {
-  @override
-  ScreenState get initialState => OnInitialScreen();
+  ScreenBloc(ScreenState initialState) : super(initialState);
 
   @override
   Stream<ScreenState> mapEventToState(ScreenEvent event) async* {

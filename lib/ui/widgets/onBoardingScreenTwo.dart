@@ -32,51 +32,33 @@ class OnBoardingScreenTwo extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              (MediaQuery.of(context).orientation == Orientation.portrait)
-                  ? Container(
-                      margin: EdgeInsets.only(top: 75.0, bottom: 20.0),
-                      width: SizeConfig.defaultWidth / 1.4,
-                      height: SizeConfig.defaultWidth / 8, //65
-                      child: Material(
-                        color: mainColor,
-                        borderRadius: borderRadius8,
-                        child: InkWell(
-                          onTap: () {},
-                          splashColor: accentColor2,
-                          borderRadius: borderRadius8,
-                          child: Center(
-                            child: Text(
-                              'GET STARTED',
-                              style: whiteTextFont3.copyWith(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-                  : Container(
-                      margin: EdgeInsets.only(top: 75.0, bottom: 20.0),
-                      width: 20,
-                      height: SizeConfig.defaultWidth / 8, //65
-                      child: Material(
-                        color: mainColor,
-                        borderRadius: borderRadius8,
-                        child: InkWell(
-                          onTap: () {},
-                          splashColor: accentColor2,
-                          borderRadius: borderRadius8,
-                          child: Center(
-                            child: Text(
-                              'GET STARTED',
-                              style: whiteTextFont3.copyWith(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                        ),
+              Container(
+                margin: EdgeInsets.only(top: 75.0, bottom: 20.0),
+                width:
+                    (MediaQuery.of(context).orientation == Orientation.portrait)
+                        ? SizeConfig.defaultWidth / 1.4
+                        : SizeConfig.defaultWidth / 2.4,
+                height:
+                    (MediaQuery.of(context).orientation == Orientation.portrait)
+                        ? SizeConfig.defaultWidth / 8
+                        : 80, //65
+                child: Material(
+                  color: mainColor,
+                  borderRadius: borderRadius8,
+                  child: InkWell(
+                    onTap: () {},
+                    splashColor: accentColor2,
+                    borderRadius: borderRadius8,
+                    child: Center(
+                      child: Text(
+                        'GET STARTED',
+                        style: whiteTextFont3.copyWith(
+                            fontSize: 16.0, fontWeight: FontWeight.normal),
                       ),
                     ),
+                  ),
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[

@@ -116,11 +116,12 @@ class _SignInScreenState extends State<SignInScreen> {
                                       isSignIn = false;
                                     });
                                     Flushbar(
-                                        duration: Duration(seconds: 4),
-                                        flushbarPosition: FlushbarPosition.TOP,
-                                        backgroundColor: accentColor2,
-                                        message: result.message)
-                                      ..show(context);
+                                      duration: Duration(seconds: 4),
+                                      flushbarPosition: FlushbarPosition.TOP,
+                                      backgroundColor: accentColor2,
+                                      message: result.message,
+                                      leftBarIndicatorColor: mainColor,
+                                    )..show(context);
                                   }
                                 }
                               : null,
@@ -136,7 +137,19 @@ class _SignInScreenState extends State<SignInScreen> {
                         style: blueTextFont.copyWith(fontSize: 14),
                       ),
                     ],
-                  )
+                  ),
+                  // RaisedButton(
+                  //   onPressed: () {
+                  //     AuthServices.signUp(
+                  //         'cinematix@admin.com',
+                  //         '123456',
+                  //         'cinematix',
+                  //         ['horor', 'sci-fi', 'hentai', 'war'],
+                  //         'amerika',
+                  //         700000);
+                  //   },
+                  //   child: Text('signUp'),
+                  // )
                 ],
               ),
             ),

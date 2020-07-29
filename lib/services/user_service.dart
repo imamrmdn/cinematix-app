@@ -34,6 +34,7 @@ class UserServices {
       id,
       snapshot.data['email'],
       name: snapshot.data['name'],
+      balance: snapshot.data['balance'],
       profilePicture: snapshot.data['profilePicture'],
       selectedGenres: (snapshot.data['selectedGenres'] as List)
           .map((e) => e.toString())

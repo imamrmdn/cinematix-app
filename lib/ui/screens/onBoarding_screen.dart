@@ -17,35 +17,23 @@ class OnBoardingScreen extends StatelessWidget {
             itemCount: onBoardingScreenList.length,
             itemBuilder: (context, index) => onBoardingScreenList[index],
           ),
-          (MediaQuery.of(context).orientation == Orientation.portrait)
-              ? Center(
-                  child: Container(
-                    margin: EdgeInsets.only(
-                      top: SizeConfig.defaultWidth / 1.7,
-                    ),
-                    child: SmoothPageIndicator(
-                      controller: controller,
-                      count: 2,
-                      effect: WormEffect(
-                        activeDotColor: mainColor,
-                      ),
-                    ),
-                  ),
-                )
-              : Center(
-                  child: Container(
-                    margin: EdgeInsets.only(
-                      top: SizeConfig.defaultHeight / 1.6,
-                    ),
-                    child: SmoothPageIndicator(
-                      controller: controller,
-                      count: 2,
-                      effect: WormEffect(
-                        activeDotColor: mainColor,
-                      ),
-                    ),
-                  ),
-                )
+          Center(
+            child: Container(
+              margin: EdgeInsets.only(
+                top:
+                    (MediaQuery.of(context).orientation == Orientation.portrait)
+                        ? SizeConfig.defaultWidth / 1.7
+                        : SizeConfig.defaultWidth / 1.6,
+              ),
+              child: SmoothPageIndicator(
+                controller: controller,
+                count: 2,
+                effect: WormEffect(
+                  activeDotColor: mainColor,
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

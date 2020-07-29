@@ -4,8 +4,13 @@ class AuthServices {
   static FirebaseAuth _auth = FirebaseAuth.instance;
 
   //method signUp atau registrasi
-  static Future<SignInSignUpResult> signUp(String email, String password,
-      String name, List<String> selectedGenres, String selectedLanguage) async {
+  static Future<SignInSignUpResult> signUp(
+      String email,
+      String password,
+      String name,
+      List<String> selectedGenres,
+      String selectedLanguage,
+      int balance) async {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -17,6 +22,7 @@ class AuthServices {
         name: name,
         selectedGenres: selectedGenres,
         selectedLanguage: selectedLanguage,
+        balance: balance,
       );
 
       //save to firestore
@@ -49,7 +55,10 @@ class AuthServices {
 
   //method Sign Out atau Logout
   static Future<void> signOut() async {
-    await _auth.signOut();
+    try {
+      await _auth.signOut();
+      return SignOutResult(message: 'Anda telah Logout dari Cinematix App');
+    } catch (_) {}
   }
 
   //cek status perubahan authentikasi
@@ -61,4 +70,10 @@ class SignInSignUpResult {
   String message;
 
   SignInSignUpResult({this.user, this.message});
+}
+
+class SignOutResult {
+  String message;
+
+  SignOutResult({this.message});
 }

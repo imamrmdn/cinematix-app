@@ -8,7 +8,8 @@ class User extends Equatable {
   final List<String> selectedGenres;
   final String selectedLanguage;
   final int balance;
-  final DateTime createAt = DateTime.now();
+  final String createAt = DateFormat('dd-MM-yyyy HH:mm')
+      .format(DateTime.now().add(Duration(days: 1)));
 
   User(
     this.id,
@@ -17,7 +18,7 @@ class User extends Equatable {
     this.profilePicture,
     this.selectedGenres,
     this.selectedLanguage,
-    this.balance,
+    this.balance = 50000,
   });
 
   @override
