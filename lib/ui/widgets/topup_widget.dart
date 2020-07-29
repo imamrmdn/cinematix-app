@@ -7,19 +7,25 @@ class TopUpWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      minimum: EdgeInsets.only(left: 35.0, right: 35.0, top: 95.0),
+    return Container(
+      margin: EdgeInsets.only(left: 35.0, right: 35.0, top: 95.0),
       child: Card(
-        child: Container(
-          padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          width: SizeConfig.defaultWidth,
-          height: 60,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              leftItem(),
-              rightItem(),
-            ],
+        elevation: 2,
+        child: InkWell(
+          onTap: () {},
+          splashColor: accentColor2,
+          borderRadius: BorderRadius.circular(4),
+          child: Container(
+            padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+            width: SizeConfig.defaultWidth,
+            height: 60,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                leftItem(),
+                rightItem(),
+              ],
+            ),
           ),
         ),
       ),
