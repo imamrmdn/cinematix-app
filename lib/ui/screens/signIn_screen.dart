@@ -49,7 +49,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     textInputType: TextInputType.emailAddress,
                     obscureText: false,
                     labelText: 'Email',
-                    hintText: 'Masukan Email Aktif Anda',
+                    hintText: 'Masukan Email Anda',
                     prefixIcon: Icon(
                       Icons.email,
                     ),
@@ -145,18 +145,6 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ],
                   ),
-                  // RaisedButton(
-                  //   onPressed: () {
-                  //     AuthServices.signUp(
-                  //         'cinematix@admin.com',
-                  //         '123456',
-                  //         'cinematix',
-                  //         ['horor', 'sci-fi', 'hentai', 'war'],
-                  //         'amerika',
-                  //         700000);
-                  //   },
-                  //   child: Text('signUp'),
-                  // )
                 ],
               ),
             ),
