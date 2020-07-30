@@ -1,4 +1,5 @@
 import 'package:cinematix_app/bloc/blocs.dart';
+import 'package:cinematix_app/models/models.dart';
 import 'package:cinematix_app/services/services.dart';
 import 'package:cinematix_app/shared/shareds.dart';
 import 'package:cinematix_app/ui/widgets/widgets.dart';
@@ -21,3 +22,5 @@ part 'home_screen.dart';
 part 'setting_screen.dart';
 part 'myticket_screen.dart';
 part 'movie_screen.dart';
+part 'preference_screen.dart';
+part 'accountConfirmation_screen.dart';

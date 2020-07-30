@@ -1,20 +1,17 @@
 part of 'widgets.dart';
 
-class Loading extends StatelessWidget {
-  final double width;
+class Loading2 extends StatelessWidget {
   final double height;
+  final double width;
 
-  Loading({
-    this.width,
-    this.height,
-  });
+  Loading2({this.height, this.width});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width,
       height: height,
-      child: SpinKitPulse(
+      width: width,
+      child: SpinKitHourGlass(
         color: accentColor2,
       ),
     );

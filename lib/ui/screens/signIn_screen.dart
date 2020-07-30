@@ -132,9 +132,16 @@ class _SignInScreenState extends State<SignInScreen> {
                         'Belum punya akun? ',
                         style: greyTextFont.copyWith(fontSize: 14),
                       ),
-                      Text(
-                        'Sign Up.',
-                        style: blueTextFont.copyWith(fontSize: 14),
+                      GestureDetector(
+                        onTap: () {
+                          context
+                              .bloc<ScreenBloc>()
+                              .add(GoToRegistrationScreen(Registration()));
+                        },
+                        child: Text(
+                          'Sign Up.',
+                          style: blueTextFont.copyWith(fontSize: 14),
+                        ),
                       ),
                     ],
                   ),

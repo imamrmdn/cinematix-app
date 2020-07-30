@@ -23,3 +23,30 @@ class OnHomeScreen extends ScreenState {
   @override
   List<Object> get props => [];
 }
+
+class OnRegistrationScreen extends ScreenState {
+  final Registration registration;
+
+  OnRegistrationScreen(this.registration);
+
+  @override
+  List<Object> get props => [];
+}
+
+class OnPreferenceScreen extends ScreenState {
+  final Registration registration;
+
+  OnPreferenceScreen(this.registration);
+
+  @override
+  List<Object> get props => [];
+}
+
+class OnAccountConfirmationScreen extends ScreenState {
+  final Registration registration;
+
+  OnAccountConfirmationScreen(this.registration);
+
+  @override
+  List<Object> get props => [];
+}

@@ -46,7 +46,11 @@ class OnBoardingScreenTwo extends StatelessWidget {
                   color: mainColor,
                   borderRadius: borderRadius8,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      context
+                          .bloc<ScreenBloc>()
+                          .add(GoToRegistrationScreen(Registration()));
+                    },
                     splashColor: accentColor2,
                     borderRadius: borderRadius8,
                     child: Center(

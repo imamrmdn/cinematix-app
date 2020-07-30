@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:cinematix_app/models/models.dart';
 import 'package:equatable/equatable.dart';
 
 part 'screen_event.dart';
@@ -17,6 +18,12 @@ class ScreenBloc extends Bloc<ScreenEvent, ScreenState> {
       yield OnSignInScreen();
     } else if (event is GoToHomeScreen) {
       yield OnHomeScreen();
+    } else if (event is GoToRegistrationScreen) {
+      yield OnRegistrationScreen(event.registration);
+    } else if (event is GoToPreferenceScreen) {
+      yield OnPreferenceScreen(event.registration);
+    } else if (event is GoToAccountConfimationScreen) {
+      yield OnAccountConfirmationScreen(event.registration);
     }
   }
 }
