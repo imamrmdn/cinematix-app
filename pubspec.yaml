@@ -37,6 +37,7 @@ dependencies:
   flutter_spinkit: ^4.1.2+1
   material_design_icons_flutter: ^4.0.5345
   flutter_svg: ^0.17.4
+  image_picker: ^0.6.4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

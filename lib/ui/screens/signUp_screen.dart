@@ -14,6 +14,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
   bool _showPassword = false;
+  bool _showConfirmPassword = false;
 
   @override
   void initState() {
@@ -27,7 +28,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     context
         .bloc<ThemeBloc>()
-        .add(ChangeTheme(ThemeData().copyWith(primaryColor: Colors.yellow)));
+        .add(ChangeTheme(ThemeData().copyWith(primaryColor: mainColor)));
     return WillPopScope(
       onWillPop: () async {
         context.bloc<ScreenBloc>().add(GoToSignInScreen());
@@ -40,9 +41,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: ListView(
             children: <Widget>[
               //
-              SignUpTextAndButton(onTap: () {
-                context.bloc<ScreenBloc>().add(GoToSignInScreen());
-              }),
+              BackButtonAndText(
+                text1: 'Sign Up',
+                text2: 'Masukan data dibawah ini untuk melakukan sign up.',
+                onTap: () {
+                  context.bloc<ScreenBloc>().add(GoToSignInScreen());
+                },
+              ),
               //
               AddProfilePicture(
                 image1: (widget.registration.profilePicture == null)
@@ -50,8 +55,41 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     : FileImage(widget.registration.profilePicture),
                 image2: AssetImage((widget.registration.profilePicture == null)
                     ? 'assets/btn_add_photo.png'
-                    : 'assets/btn_Add_photo-1.png'),
-                onTap: () {},
+                    : 'assets/btn_add_photo-1.png'),
+                onTap: () async {
+                  if (widget.registration.profilePicture == null) {
+                    widget.registration.profilePicture = await getImage();
+                    Flushbar(
+                      duration: Duration(seconds: 2),
+                      messageText: Text('Berhasil Menambah Profile Picture !',
+                          style: whiteTextFont),
+                      backgroundColor: Colors.greenAccent,
+                      flushbarPosition: FlushbarPosition.TOP,
+                      leftBarIndicatorColor: mainColor,
+                    )..show(context);
+                    if (widget.registration.profilePicture == null) {
+                      Flushbar(
+                        duration: Duration(seconds: 2),
+                        messageText: Text('Gagal Menambah Profile Picture!',
+                            style: blackTextFont),
+                        backgroundColor: Colors.yellowAccent,
+                        flushbarPosition: FlushbarPosition.TOP,
+                        leftBarIndicatorColor: mainColor,
+                      )..show(context);
+                    }
+                  } else {
+                    widget.registration.profilePicture = null;
+                    Flushbar(
+                      duration: Duration(seconds: 1),
+                      messageText: Text('Poto Profile Berhasil Dihapus.',
+                          style: whiteTextFont),
+                      backgroundColor: Colors.red,
+                      flushbarPosition: FlushbarPosition.TOP,
+                      leftBarIndicatorColor: mainColor,
+                    )..show(context);
+                  }
+                  setState(() {});
+                },
               ),
               SizedBox(height: 30.0),
               //
@@ -94,26 +132,80 @@ class _SignUpScreenState extends State<SignUpScreen> {
               TextInputForm(
                 controller: confirmPasswordController,
                 textInputType: TextInputType.text,
-                obscureText: !_showPassword,
+                obscureText: !_showConfirmPassword,
                 labelText: 'Confirm Password',
                 hintText: 'Masukan ulang password anda',
                 prefixIcon: Icon(Icons.lock),
                 suffixIcon: GestureDetector(
                   onTap: () {
                     setState(() {
-                      _showPassword = !_showPassword;
+                      _showConfirmPassword = !_showConfirmPassword;
                     });
                   },
                   child: Icon(
-                    _showPassword ? Icons.visibility : Icons.visibility_off,
+                    _showConfirmPassword
+                        ? Icons.visibility
+                        : Icons.visibility_off,
                   ),
                 ),
               ),
               SizedBox(height: 30.0),
-              FloatingActionButton(
+              ButtonNext(
                 backgroundColor: mainColor,
-                child: Icon(Icons.arrow_forward),
-                onPressed: () {},
+                onPressed: () {
+                  if (!(nameController.text.trim() != '' &&
+                      emailController.text.trim() != '' &&
+                      passwordController.text.trim() != '' &&
+                      confirmPasswordController.text.trim() != '')) {
+                    Flushbar(
+                      duration: Duration(seconds: 2),
+                      messageText: Text('Silahkan isi semua field.',
+                          style: whiteTextFont),
+                      backgroundColor: Colors.red,
+                      flushbarPosition: FlushbarPosition.TOP,
+                      leftBarIndicatorColor: mainColor,
+                    )..show(context);
+                  } else if (!EmailValidator.validate(emailController.text)) {
+                    Flushbar(
+                      duration: Duration(seconds: 1),
+                      messageText: Text('Format email salah anda salah!',
+                          style: whiteTextFont),
+                      backgroundColor: Colors.red,
+                      flushbarPosition: FlushbarPosition.TOP,
+                      leftBarIndicatorColor: mainColor,
+                    )..show(context);
+                  } else if (passwordController.text !=
+                      confirmPasswordController.text) {
+                    Flushbar(
+                      duration: Duration(seconds: 1),
+                      messageText: Text(
+                          'Confirm Password tidak sama dengan Password anda.',
+                          style: whiteTextFont),
+                      backgroundColor: Colors.red,
+                      flushbarPosition: FlushbarPosition.TOP,
+                      leftBarIndicatorColor: mainColor,
+                    )..show(context);
+                  } else if (passwordController.text.length < 6) {
+                    Flushbar(
+                      duration: Duration(seconds: 1),
+                      messageText: Text(
+                          'Password minimal 6 karakter atau lebih.',
+                          style: whiteTextFont),
+                      backgroundColor: Colors.red,
+                      flushbarPosition: FlushbarPosition.TOP,
+                      leftBarIndicatorColor: mainColor,
+                    )..show(context);
+                  } else {
+                    widget.registration.name = nameController.text;
+                    widget.registration.email = emailController.text;
+                    widget.registration.password = passwordController.text;
+
+                    //
+                    context
+                        .bloc<ScreenBloc>()
+                        .add(GoToPreferenceScreen(widget.registration));
+                  }
+                },
               )
             ],
           ),

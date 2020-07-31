@@ -23,6 +23,7 @@ class AddProfilePicture extends StatelessWidget {
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: image1,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

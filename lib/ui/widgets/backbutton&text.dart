@@ -1,9 +1,15 @@
 part of 'widgets.dart';
 
-class SignUpTextAndButton extends StatelessWidget {
+class BackButtonAndText extends StatelessWidget {
   final Function onTap;
+  final String text1;
+  final String text2;
 
-  SignUpTextAndButton({this.onTap});
+  BackButtonAndText({
+    this.onTap,
+    this.text1,
+    this.text2,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +26,14 @@ class SignUpTextAndButton extends StatelessWidget {
             ),
           ),
           Text(
-            'Sign Up',
+            text1,
             style: blackTextFont.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 20.0,
             ),
           ),
           SizedBox(height: 5),
-          Text('Masukan data dibawah ini untuk melakukan Sign Up',
-              style: blackTextFont3),
+          Text(text2, style: blackTextFont3),
         ],
       ),
     );

@@ -18,5 +18,6 @@ part 'bottomNavBar.dart';
 part 'buttonMyTicket.dart';
 part 'profileHomeScreen.dart';
 part 'topup_widget.dart';
-part 'signup_text&button.dart';
+part 'backbutton&text.dart';
 part 'add_profilepicture.dart';
+part 'selectable_box.dart';
