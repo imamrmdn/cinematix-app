@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:cinematix_app/bloc/blocs.dart';
 import 'package:cinematix_app/models/models.dart';
 import 'package:cinematix_app/services/services.dart';
@@ -11,8 +9,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -27,11 +23,3 @@ part 'myticket_screen.dart';
 part 'movie_screen.dart';
 part 'preference_screen.dart';
 part 'accountConfirmation_screen.dart';
-
-//imagepicker to use registration or signup screen and edit profile screen
-Future<File> getImage() async {
-  // ignore: deprecated_member_use
-  var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-
-  return image;
-}

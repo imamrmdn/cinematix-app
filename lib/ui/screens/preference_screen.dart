@@ -30,13 +30,11 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
   List<String> selectedLanguage = [];
   double width = (SizeConfig.defaultWidth - 2 * 30.0 - 25) / 2;
 
-  @override
-  void initState() {
-    super.initState();
-
-    widget.registration.selectedLanguage = selectedLanguage.toString();
-    widget.registration.selectedGenres = selectedGenre;
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   selectedGenre = widget.registration.selectedGenres;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -86,14 +84,19 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
               ButtonNext(
                 backgroundColor: mainColor,
                 onPressed: () {
-                  if (selectedGenre.length != 4 &&
-                      selectedLanguage.length != 1) {
+                  if (selectedGenre.length != 4) {
                     Flushbar(
                       duration: Duration(seconds: 2),
                       flushbarPosition: FlushbarPosition.TOP,
                       backgroundColor: Colors.yellowAccent,
-                      messageText: Text('Pilih 4 genre dan 1 bahasa',
-                          style: blackTextFont),
+                      messageText: Text('Pilih 4 genre', style: blackTextFont),
+                    )..show(context);
+                  } else if (selectedLanguage.length != 1) {
+                    Flushbar(
+                      duration: Duration(seconds: 2),
+                      flushbarPosition: FlushbarPosition.TOP,
+                      backgroundColor: Colors.yellowAccent,
+                      messageText: Text('Pilih 1 bahasa', style: blackTextFont),
                     )..show(context);
                   } else {
                     widget.registration.selectedGenres = selectedGenre;

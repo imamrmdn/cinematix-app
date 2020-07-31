@@ -21,6 +21,7 @@ class AddProfilePicture extends StatelessWidget {
               width: 90.0,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
+                border: Border.all(color: accentColor2, width: 2),
                 image: DecorationImage(
                   image: image1,
                   fit: BoxFit.cover,

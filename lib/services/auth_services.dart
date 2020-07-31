@@ -5,12 +5,12 @@ class AuthServices {
 
   //method signUp atau registrasi
   static Future<SignInSignUpResult> signUp(
-      String email,
-      String password,
-      String name,
-      List<String> selectedGenres,
-      String selectedLanguage,
-      int balance) async {
+    String email,
+    String password,
+    String name,
+    List<String> selectedGenres,
+    String selectedLanguage,
+  ) async {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(
         email: email,
@@ -22,7 +22,6 @@ class AuthServices {
         name: name,
         selectedGenres: selectedGenres,
         selectedLanguage: selectedLanguage,
-        balance: balance,
       );
 
       //save to firestore

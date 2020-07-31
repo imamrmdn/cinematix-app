@@ -1,13 +1,6 @@
 part of 'screens.dart';
 
 class MovieScreen extends StatelessWidget {
-  String format(int number) {
-    var numberformat =
-        NumberFormat.currency(locale: 'id_ID', decimalDigits: 0, symbol: 'Rp. ')
-            .format(number);
-    return numberformat;
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UserBloc, UserState>(
