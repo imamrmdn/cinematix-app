@@ -111,6 +111,8 @@ class _AccountConfirmScreenState extends State<AccountConfirmScreen> {
                                   Flushbar(
                                     duration: Duration(seconds: 2),
                                     flushbarPosition: FlushbarPosition.TOP,
+                                    icon: Icon(Icons.info_outline,
+                                        color: whiteColor),
                                     backgroundColor: Colors.red,
                                     messageText: Text(result.message,
                                         style: whiteTextFont),

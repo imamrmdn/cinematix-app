@@ -17,6 +17,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _showConfirmPassword = false;
 
   @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
 
@@ -61,8 +70,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     widget.registration.profilePicture = await getImage();
                     Flushbar(
                       duration: Duration(seconds: 2),
-                      messageText: Text('Berhasil Menambah Profile Picture !',
-                          style: whiteTextFont),
+                      icon: Icon(Icons.done_outline),
+                      messageText: Text('Berhasil Menambah Profile Picture.',
+                          style: blackTextFont),
                       backgroundColor: Colors.greenAccent,
                       flushbarPosition: FlushbarPosition.TOP,
                       leftBarIndicatorColor: mainColor,
@@ -70,7 +80,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     if (widget.registration.profilePicture == null) {
                       Flushbar(
                         duration: Duration(seconds: 2),
-                        messageText: Text('Gagal Menambah Profile Picture!',
+                        titleText: Text(
+                          'Anda belum menambahkan Profile Picture',
+                          style: blackTextFont.copyWith(
+                              fontWeight: FontWeight.bold),
+                        ),
+                        icon: Icon(Icons.info_outline, color: blackColor),
+                        messageText: Text('silahkan pilih profile picture!',
                             style: blackTextFont),
                         backgroundColor: Colors.yellowAccent,
                         flushbarPosition: FlushbarPosition.TOP,
@@ -81,7 +97,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     widget.registration.profilePicture = null;
                     Flushbar(
                       duration: Duration(seconds: 1),
-                      messageText: Text('Poto Profile Berhasil Dihapus.',
+                      messageText: Text('Poto Profile Berhasil Dihapus!',
                           style: whiteTextFont),
                       backgroundColor: Colors.red,
                       flushbarPosition: FlushbarPosition.TOP,

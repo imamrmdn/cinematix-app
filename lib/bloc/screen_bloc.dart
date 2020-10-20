@@ -24,6 +24,16 @@ class ScreenBloc extends Bloc<ScreenEvent, ScreenState> {
       yield OnPreferenceScreen(event.registration);
     } else if (event is GoToAccountConfimationScreen) {
       yield OnAccountConfirmationScreen(event.registration);
+    } else if (event is GoToMovieDetailScreen) {
+      yield OnMovieDetailScreen(event.movie);
+    } else if (event is GoToSelectDateScreen) {
+      yield OnSelectDateScreen(event.movieDetail);
+    } else if (event is GoToSelectSeatsScreen) {
+      yield OnSelectSeatsScreen(event.ticket);
+    } else if (event is GoToCheckOutScreen) {
+      yield OnCheckOutScreen(event.ticket);
+    } else if (event is GoToSuccesScreen) {
+      yield OnSuccesScreen(event.ticket, event.transaction);
     }
   }
 }

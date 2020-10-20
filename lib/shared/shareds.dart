@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path/path.dart';
 
 import 'package:cinematix_app/bloc/blocs.dart';
 import 'package:flutter/material.dart';

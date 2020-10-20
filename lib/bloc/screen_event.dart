@@ -45,3 +45,49 @@ class GoToAccountConfimationScreen extends ScreenEvent {
   @override
   List<Object> get props => [];
 }
+
+class GoToMovieDetailScreen extends ScreenEvent {
+  final Movie movie;
+
+  GoToMovieDetailScreen(this.movie);
+
+  @override
+  List<Object> get props => [movie];
+}
+
+class GoToSelectDateScreen extends ScreenEvent {
+  final MovieDetail movieDetail;
+
+  GoToSelectDateScreen(this.movieDetail);
+
+  @override
+  List<Object> get props => [movieDetail];
+}
+
+class GoToSelectSeatsScreen extends ScreenEvent {
+  final Ticket ticket;
+
+  GoToSelectSeatsScreen(this.ticket);
+
+  @override
+  List<Object> get props => [ticket];
+}
+
+class GoToCheckOutScreen extends ScreenEvent {
+  final Ticket ticket;
+
+  GoToCheckOutScreen(this.ticket);
+
+  @override
+  List<Object> get props => [ticket];
+}
+
+class GoToSuccesScreen extends ScreenEvent {
+  final Ticket ticket;
+  final CinematixTransaction transaction;
+
+  GoToSuccesScreen(this.ticket, this.transaction);
+
+  @override
+  List<Object> get props => [ticket, transaction];
+}

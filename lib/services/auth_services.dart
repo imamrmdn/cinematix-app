@@ -28,8 +28,9 @@ class AuthServices {
       await UserServices.updateUser(user);
 
       return SignInSignUpResult(user: user);
-    } catch (e) {
-      return SignInSignUpResult(message: '$e'.split(',')[1]);
+    } catch (_) {
+      return SignInSignUpResult(
+          message: 'Email sudah digunakan oleh akun lain.');
     }
   }
 

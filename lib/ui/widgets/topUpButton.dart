@@ -1,6 +1,10 @@
 part of 'widgets.dart';
 
-class MyTicketButton extends StatelessWidget {
+class TopUpButton extends StatelessWidget {
+  final Function onPressed;
+
+  TopUpButton({this.onPressed});
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -11,11 +15,8 @@ class MyTicketButton extends StatelessWidget {
         margin: EdgeInsets.only(bottom: 42),
         child: FloatingActionButton(
           backgroundColor: mainColor,
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => MyTicketScreen()));
-          },
-          child: Icon(MdiIcons.ticket),
+          onPressed: onPressed,
+          child: Icon(MdiIcons.walletPlus),
         ),
       ),
     );

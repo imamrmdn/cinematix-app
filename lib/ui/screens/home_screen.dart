@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
               controller: pageController,
               children: <Widget>[
                 MovieScreen(),
-                SettingScreen(),
+                MyTicketScreen(),
               ],
               onPageChanged: (index) {
                 setState(() {
@@ -69,11 +69,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     margin: EdgeInsets.only(bottom: 6),
                     height: 20,
                     child: Image.asset((bottomNavBarIndex == 1)
-                        ? 'assets/setting.png'
-                        : 'assets/setting_grey.png'),
+                        ? 'assets/my_ticket.png'
+                        : 'assets/my_ticket_grey.png'),
                   ),
                   title: Text(
-                    'Setting',
+                    'My Ticket',
                     style: (bottomNavBarIndex == 1)
                         ? blackTextFont.copyWith(
                             fontSize: 13,
@@ -84,7 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            MyTicketButton(),
+            TopUpButton(
+              onPressed: () {},
+            ),
           ],
         )));
   }

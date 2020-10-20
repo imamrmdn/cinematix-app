@@ -30,12 +30,6 @@ class _PreferenceScreenState extends State<PreferenceScreen> {
   List<String> selectedLanguage = [];
   double width = (SizeConfig.defaultWidth - 2 * 30.0 - 25) / 2;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   selectedGenre = widget.registration.selectedGenres;
-  // }
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(

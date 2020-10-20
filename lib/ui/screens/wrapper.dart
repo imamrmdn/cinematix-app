@@ -30,6 +30,18 @@ class Wrapper extends StatelessWidget {
                         ? PreferenceScreen(screenState.registration)
                         : (screenState is OnAccountConfirmationScreen)
                             ? AccountConfirmScreen(screenState.registration)
-                            : HomeScreen());
+                            : (screenState is OnMovieDetailScreen)
+                                ? MovieDetailScreen(screenState.movie)
+                                : (screenState is OnSelectDateScreen)
+                                    ? SelectDateScreen(screenState.movieDetail)
+                                    : (screenState is OnSelectSeatsScreen)
+                                        ? SelectSeatsScreen(screenState.ticket)
+                                        : (screenState is OnCheckOutScreen)
+                                            ? CheckOutScreen(screenState.ticket)
+                                            : (screenState is OnSuccesScreen)
+                                                ? SuccesScreen(
+                                                    screenState.ticket,
+                                                    screenState.transaction)
+                                                : HomeScreen());
   }
 }

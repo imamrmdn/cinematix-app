@@ -1,16 +1,19 @@
 part of 'widgets.dart';
 
-class TopUpWidget extends StatelessWidget {
+class MyWallet extends StatelessWidget {
   final String balance;
 
-  TopUpWidget({this.balance});
+  MyWallet({this.balance});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 35.0, right: 35.0, top: 95.0),
+      margin: EdgeInsets.only(left: 25.0, right: 25.0, top: 95.0),
       child: Card(
         elevation: 2,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
         child: InkWell(
           onTap: () {},
           splashColor: accentColor2,
@@ -35,9 +38,9 @@ class TopUpWidget extends StatelessWidget {
   Widget leftItem() {
     return Row(
       children: <Widget>[
-        Image.asset('assets/top_up.png'),
+        //Image.asset('assets/top_up.png'),
         SizedBox(width: 10),
-        Text('Top Up', style: blueTextFont)
+        Text('My Wallet', style: blueTextFont)
       ],
     );
   }

@@ -1,11 +1,13 @@
 import 'package:cinematix_app/bloc/blocs.dart';
 import 'package:cinematix_app/models/models.dart';
-import 'package:cinematix_app/ui/screens/screens.dart';
+import 'package:cinematix_app/extensions/extensions.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cinematix_app/shared/shareds.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:shimmer/shimmer.dart';
 
 part 'onBoardingScreenOne.dart';
 part 'onBoardingScreenTwo.dart';
@@ -15,9 +17,16 @@ part 'loading.dart';
 part 'loading2.dart';
 part 'bottomNavBarClipper.dart';
 part 'bottomNavBar.dart';
-part 'buttonMyTicket.dart';
+part 'topUpButton.dart';
 part 'profileHomeScreen.dart';
-part 'topup_widget.dart';
+part 'mywallet_widget.dart';
 part 'backbutton&text.dart';
 part 'add_profilepicture.dart';
 part 'selectable_box.dart';
+part 'movie_card.dart';
+part 'rating_star.dart';
+part 'genre_card.dart';
+part 'commingsoon_card.dart';
+part 'promo_card.dart';
+part 'cast_crew.dart';
+part 'date_card.dart';

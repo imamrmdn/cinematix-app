@@ -21,6 +21,18 @@ class User extends Equatable {
     this.balance = 50000,
   });
 
+  User copyWith({String name, String profilePicture, int balance}) {
+    return User(
+      this.id,
+      this.email,
+      name: name ?? this.name,
+      profilePicture: profilePicture ?? this.profilePicture,
+      selectedGenres: selectedGenres,
+      selectedLanguage: selectedLanguage,
+      balance: balance ?? this.balance,
+    );
+  }
+
   @override
   String toString() {
     return '[$id] - $name, $email ';

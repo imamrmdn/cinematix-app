@@ -30,6 +30,7 @@ class TextInputForm extends StatelessWidget {
       controller: controller,
       keyboardType: textInputType,
       obscureText: obscureText,
+      cursorColor: mainColor,
       style: blackTextFont,
       decoration: InputDecoration(
         border: OutlineInputBorder(

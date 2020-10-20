@@ -50,3 +50,49 @@ class OnAccountConfirmationScreen extends ScreenState {
   @override
   List<Object> get props => [];
 }
+
+class OnMovieDetailScreen extends ScreenState {
+  final Movie movie;
+
+  OnMovieDetailScreen(this.movie);
+
+  @override
+  List<Object> get props => [movie];
+}
+
+class OnSelectDateScreen extends ScreenState {
+  final MovieDetail movieDetail;
+
+  OnSelectDateScreen(this.movieDetail);
+
+  @override
+  List<Object> get props => [movieDetail];
+}
+
+class OnSelectSeatsScreen extends ScreenState {
+  final Ticket ticket;
+
+  OnSelectSeatsScreen(this.ticket);
+
+  @override
+  List<Object> get props => [ticket];
+}
+
+class OnCheckOutScreen extends ScreenState {
+  final Ticket ticket;
+
+  OnCheckOutScreen(this.ticket);
+
+  @override
+  List<Object> get props => [ticket];
+}
+
+class OnSuccesScreen extends ScreenState {
+  final Ticket ticket;
+  final CinematixTransaction transaction;
+
+  OnSuccesScreen(this.ticket, this.transaction);
+
+  @override
+  List<Object> get props => [ticket, transaction];
+}

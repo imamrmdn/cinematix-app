@@ -13,6 +13,12 @@ class _SignInScreenState extends State<SignInScreen> {
   bool isSignIn = false;
   bool _showPassword = false;
 
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     context
